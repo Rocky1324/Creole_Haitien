@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreyòl Ayisyen - Apprenez le Créole Haïtien</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .lesson-card {
+            transition: all 0.3s ease;
+        }
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .wave {
+            animation: wave 2s linear infinite;
+        }
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-flag fa-lg"></i>
+                <span class="text-xl font-bold">Kreyòl Ayisyen</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#lessons" class="hover:text-blue-200 transition">Leçons</a>
+                <a href="#vocabulary" class="hover:text-blue-200 transition">Vocabulaire</a>
+                <a href="#practice" class="hover:text-blue-200 transition">Pratique</a>
+                <a href="#progress" class="hover:text-blue-200 transition">Progression</a>
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-white">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-blue-700">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#lessons" class="py-2 hover:text-blue-200 transition">Leçons</a>
+                <a href="#vocabulary" class="py-2 hover:text-blue-200 transition">Vocabulaire</a>
+                <a href="#practice" class="py-2 hover:text-blue-200 transition">Pratique</a>
+                <a href="#progress" class="py-2 hover:text-blue-200 transition">Progression</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Apprenez le Créole Haïtien</h1>
+                <p class="text-xl mb-6">Découvrez la beauté et la richesse de la langue créole haïtienne à travers des leçons interactives et culturelles.</p>
+                <div class="flex space-x-4">
+                    <button onclick="scrollToSection('lessons')" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition">Commencer</button>
+                    <button onclick="scrollToSection('culture')" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">En savoir plus</button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64">
+                    <div class="absolute inset-0 bg-white bg-opacity-20 rounded-full animate-pulse"></div>
+                    <div class="absolute inset-4 bg-white bg-opacity-20 rounded-full animate-pulse delay-100"></div>
+                    <div class="absolute inset-8 bg-white bg-opacity-20 rounded-full animate-pulse delay-200"></div>
+                    <div class="absolute inset-12 flex items-center justify-center">
+                        <i class="fas fa-comments fa-6x text-white wave"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Pourquoi apprendre le Kreyòl?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-globe-americas fa-3x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Culture riche</h3>
+                    <p class="text-gray-600">Plongez dans la culture vibrante d'Haïti, ses traditions, sa musique et son histoire unique.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-hands-helping fa-3x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Communication</h3>
+                    <p class="text-gray-600">Communiquez avec plus de 10 millions de locuteurs en Haïti et dans la diaspora.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-brain fa-3x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Développement cognitif</h3>
+                    <p class="text-gray-600">Apprendre une nouvelle langue stimule votre cerveau et améliore vos capacités cognitives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section id="lessons" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Leçons de Kreyòl</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Lesson 1 -->
+                <div class="lesson-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="startLesson('Salutations de base')">
+                    <div class="h-40 bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-handshake fa-4x text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Salutations de base</h3>
+                        <p class="text-gray-600 mb-4">Apprenez les salutations essentielles pour commencer une conversation en créole.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">5 exercices</span>
+                            <button class="text-blue-500 font-semibold">Commencer →</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lesson 2 -->
+                <div class="lesson-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="startLesson('Nourriture et boissons')">
+                    <div class="h-40 bg-green-500 flex items-center justify-center">
+                        <i class="fas fa-utensils fa-4x text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Nourriture et boissons</h3>
+                        <p class="text-gray-600 mb-4">Découvrez le vocabulaire culinaire et commandez comme un local.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">7 exercices</span>
+                            <button class="text-blue-500 font-semibold">Commencer →</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lesson 3 -->
+                <div class="lesson-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="startLesson('Directions et lieux')">
+                    <div class="h-40 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-map-marked-alt fa-4x text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Directions et lieux</h3>
+                        <p class="text-gray-600 mb-4">Demandez et donnez des directions pour naviguer en Haïti.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">6 exercices</span>
+                            <button class="text-blue-500 font-semibold">Commencer →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button onclick="showAllLessons()" class="border-2 border-blue-500 text-blue-500 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition">
+                    Voir toutes les leçons
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vocabulary Flashcards -->
+    <section id="vocabulary" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Cartes de vocabulaire</h2>
+            
+            <div class="max-w-md mx-auto mb-10">
+                <div id="mainFlashcard" class="flip-card relative w-full h-64 cursor-pointer" onclick="flipCard(this)">
+                    <div class="flip-card-inner w-full h-full">
+                        <div class="flip-card-front bg-blue-500 rounded-xl shadow-lg flex flex-col items-center justify-center p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-4">Bonjou</h3>
+                            <p class="text-center">Utilisé pour saluer le matin jusqu'à midi</p>
+                            <div class="absolute bottom-4 right-4">
+                                <i class="fas fa-redo"></i> Retourner
+                            </div>
+                        </div>
+                        <div class="flip-card-back bg-green-500 rounded-xl shadow-lg flex flex-col items-center justify-center p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-4">Bonjour</h3>
+                            <p class="text-center">Used to greet in the morning until noon</p>
+                            <div class="absolute bottom-4 right-4">
+                                <i class="fas fa-redo"></i> Flip back
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-4">
+                    <button onclick="prevFlashcard()" class="bg-gray-200 px-4 py-2 rounded-lg">
+                        <i class="fas fa-arrow-left"></i> Précédent
+                    </button>
+                    <button onclick="playAudio()" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                        <i class="fas fa-volume-up"></i> Prononciation
+                    </button>
+                    <button onclick="nextFlashcard()" class="bg-gray-200 px-4 py-2 rounded-lg">
+                        Suivant <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Vocabulary items -->
+                <div class="bg-gray-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-100 transition" onclick="showFlashcard('Mèsi', 'Merci', 'Expression de gratitude')">
+                    <div class="text-blue-500 mb-2">
+                        <i class="fas fa-comment-dots fa-2x"></i>
+                    </div>
+                    <h4 class="font-semibold">Mèsi</h4>
+                    <p class="text-sm text-gray-500">Merci</p>
+                </div>
+                
+                <div class="bg-gray-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-100 transition" onclick="showFlashcard('Kijan ou ye?', 'Comment ça va?', 'Salutation informelle')">
+                    <div class="text-blue-500 mb-2">
+                        <i class="fas fa-comment-dots fa-2x"></i>
+                    </div>
+                    <h4 class="font-semibold">Kijan ou ye?</h4>
+                    <p class="text-sm text-gray-500">Comment ça va?</p>
+                </div>
+                
+                <div class="bg-gray-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-100 transition" onclick="showFlashcard('Mwen byen', 'Je vais bien', 'Réponse à une salutation')">
+                    <div class="text-blue-500 mb-2">
+                        <i class="fas fa-comment-dots fa-2x"></i>
+                    </div>
+                    <h4 class="font-semibold">Mwen byen</h4>
+                    <p class="text-sm text-gray-500">Je vais bien</p>
+                </div>
+                
+                <div class="bg-gray-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-100 transition" onclick="showFlashcard('Ki jan ou rele?', 'Comment tu t\'appelles?', 'Demander le nom')">
+                    <div class="text-blue-500 mb-2">
+                        <i class="fas fa-comment-dots fa-2x"></i>
+                    </div>
+                    <h4 class="font-semibold">Ki jan ou rele?</h4>
+                    <p class="text-sm text-gray-500">Comment tu t'appelles?</p>
+                </div>
+                
+                <div class="bg-gray-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-100 transition" onclick="showFlashcard('Mwen rele...', 'Je m\'appelle...', 'Se présenter')">
+                    <div class="text-blue-500 mb-2">
+                        <i class="fas fa-comment-dots fa-2x"></i>
+                    </div>
+                    <h4 class="font-semibold">Mwen rele...</h4>
+                    <p class="text-sm text-gray-500">Je m'appelle...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Pratique interactive</h2>
+            
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-semibold">Traduisez cette phrase</h3>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                        <p id="practiceQuestion" class="text-lg font-medium">"Comment allez-vous aujourd'hui?"</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Votre réponse en Kreyòl:</label>
+                        <input id="practiceAnswer" type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Écrivez la traduction ici...">
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button onclick="playPracticeAudio()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition">
+                            <i class="fas fa-volume-up mr-2"></i> Écouter
+                        </button>
+                        <button onclick="checkAnswer()" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                            Vérifier <i class="fas fa-check ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="practiceFeedback" class="bg-gray-50 px-6 py-4 border-t hidden">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Bonne réponse!</p>
+                            <p class="text-sm text-gray-600">La traduction correcte est: <span id="correctAnswer" class="font-semibold">Kijan ou ye jodi a?</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="practiceHint" class="bg-gray-50 px-6 py-4 border-t">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Astuce:</p>
+                            <p class="text-sm text-gray-600">En Kreyòl, on utilise souvent "Kijan ou ye?" pour "Comment allez-vous?"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <button onclick="nextPracticeQuestion()" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Question suivante <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Votre progression</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                    <!-- Days Streak -->
+                    <div class="bg-blue-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mr-4">
+                                <i class="fas fa-fire fa-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Série actuelle</p>
+                                <p id="streakDays" class="text-2xl font-bold">7 jours</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">Continuez votre apprentissage demain pour maintenir votre série!</p>
+                    </div>
+                    
+                    <!-- Words Learned -->
+                    <div class="bg-green-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-500 mr-4">
+                                <i class="fas fa-book fa-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Mots appris</p>
+                                <p id="wordsLearned" class="text-2xl font-bold">142</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">Vous connaissez déjà 15% du vocabulaire courant!</p>
+                    </div>
+                    
+                    <!-- Lessons Completed -->
+                    <div class="bg-purple-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-500 mr-4">
+                                <i class="fas fa-check-circle fa-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Leçons terminées</p>
+                                <p id="lessonsCompleted" class="text-2xl font-bold">8</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">Excellent travail! Continuez comme ça.</p>
+                    </div>
+                </div>
+                
+                <!-- Progress Chart -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-semibold mb-6">Votre progression hebdomadaire</h3>
+                    <div class="h-64">
+                        <!-- This would be replaced with an actual chart in a real app -->
+                        <div class="flex items-end h-48 space-x-2">
+                            <div class="flex-1 bg-blue-200 rounded-t" style="height: 20%;"></div>
+                            <div class="flex-1 bg-blue-300 rounded-t" style="height: 35%;"></div>
+                            <div class="flex-1 bg-blue-400 rounded-t" style="height: 50%;"></div>
+                            <div class="flex-1 bg-blue-500 rounded-t" style="height: 75%;"></div>
+                            <div class="flex-1 bg-blue-600 rounded-t" style="height: 90%;"></div>
+                            <div class="flex-1 bg-blue-700 rounded-t" style="height: 60%;"></div>
+                            <div class="flex-1 bg-blue-800 rounded-t" style="height: 40%;"></div>
+                        </div>
+                        <div class="flex justify-between mt-2 text-sm text-gray-600">
+                            <span>Lun</span>
+                            <span>Mar</span>
+                            <span>Mer</span>
+                            <span>Jeu</span>
+                            <span>Ven</span>
+                            <span>Sam</span>
+                            <span>Dim</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Culture Haïtienne</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Le Kreyòl dans la culture haïtienne</h3>
+                    <p class="mb-4 text-gray-300">Le créole haïtien (kreyòl ayisyen) est bien plus qu'une langue - c'est le symbole de l'identité haïtienne, de la résistance et de la créativité.</p>
+                    <p class="mb-4 text-gray-300">Né du mélange de français, de langues africaines et d'influences taïno et espagnole, le kreyòl est la langue maternelle de tous les Haïtiens et la seule comprise par la totalité de la population.</p>
+                    <p class="mb-6 text-gray-300">Dans cette application, vous découvrirez non seulement la langue, mais aussi les proverbes, la musique (kompa, rasin, twoubadou), la littérature et les traditions qui font la richesse de la culture haïtienne.</p>
+                    <button onclick="exploreCulture()" class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition">
+                        Explorer la culture <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition" onclick="showCultureDetail('Art haïtien')">
+                        <div class="h-40 bg-cover bg-center rounded-md mb-3" style="background-image: url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <h4 class="font-semibold mb-1">Art haïtien</h4>
+                        <p class="text-sm text-gray-400">Découvrez l'art naïf et les peintures vibrantes d'Haïti</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition" onclick="showCultureDetail('Musique')">
+                        <div class="h-40 bg-cover bg-center rounded-md mb-3" style="background-image: url('https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <h4 class="font-semibold mb-1">Musique</h4>
+                        <p class="text-sm text-gray-400">Kompa, rasin et les rythmes entraînants</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition" onclick="showCultureDetail('Cuisine')">
+                        <div class="h-40 bg-cover bg-center rounded-md mb-3" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <h4 class="font-semibold mb-1">Cuisine</h4>
+                        <p class="text-sm text-gray-400">Griot, diri kole ak pwa, et autres spécialités</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition" onclick="showCultureDetail('Histoire')">
+                        <div class="h-40 bg-cover bg-center rounded-md mb-3" style="background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <h4 class="font-semibold mb-1">Histoire</h4>
+                        <p class="text-sm text-gray-400">La première république noire indépendante</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagrams Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Architecture de l'Application</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-4 text-center">Diagramme de Cas d'Utilisation</h3>
+                <div class="bg-gray-100 p-6 rounded-xl overflow-auto">
+                    <div class="flex justify-center">
+                        <!-- Simplified UML Use Case Diagram -->
+                        <div class="border-2 border-gray-300 rounded-lg p-4" style="min-width: 600px;">
+                            <div class="flex justify-between mb-6">
+                                <div class="w-1/3 border-r-2 border-gray-300 pr-4">
+                                    <div class="font-bold text-lg mb-2">Utilisateur</div>
+                                    <ul class="list-disc pl-5">
+                                        <li>Créer un compte</li>
+                                        <li>Se connecter</li>
+                                        <li>Accéder aux leçons</li>
+                                        <li>Pratiquer le vocabulaire</li>
+                                    </ul>
+                                </div>
+                                <div class="w-1/3 border-r-2 border-gray-300 pr-4">
+                                    <div class="font-bold text-lg mb-2">Admin</div>
+                                    <ul class="list-disc pl-5">
+                                        <li>Gérer le contenu</li>
+                                        <li>Analyser les statistiques</li>
+                                        <li>Modérer la communauté</li>
+                                    </ul>
+                                </div>
+                                <div class="w-1/3 pl-4">
+                                    <div class="font-bold text-lg mb-2">Système</div>
+                                    <ul class="list-disc pl-5">
+                                        <li>Suivre la progression</li>
+                                        <li>Générer des exercices</li>
+                                        <li>Fournir des feedbacks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-center text-gray-500 italic">Diagramme UML simplifié des cas d'utilisation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Class Diagram -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Diagramme de Classes</h3>
+                    <div class="bg-gray-100 p-6 rounded-xl h-64 overflow-auto">
+                        <div class="border-2 border-gray-300 rounded-lg p-4" style="min-width: 400px;">
+                            <div class="font-bold mb-2">User</div>
+                            <div class="text-sm mb-1">- id: String</div>
+                            <div class="text-sm mb-1">- name: String</div>
+                            <div class="text-sm mb-1">- email: String</div>
+                            <div class="text-sm mb-3">- password: String</div>
+                            <div class="text-sm mb-1">+ login()</div>
+                            <div class="text-sm mb-1">+ completeLesson()</div>
+                            <hr class="my-2 border-gray-300">
+                            
+                            <div class="font-bold mb-2">Lesson</div>
+                            <div class="text-sm mb-1">- id: String</div>
+                            <div class="text-sm mb-1">- title: String</div>
+                            <div class="text-sm mb-1">- content: String</div>
+                            <div class="text-sm mb-3">- difficulty: Number</div>
+                            <div class="text-sm mb-1">+ getContent()</div>
+                            <hr class="my-2 border-gray-300">
+                            
+                            <div class="text-sm mb-1">User "1" -- "*" Lesson : completes</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sequence Diagram -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Diagramme de Séquence</h3>
+                    <div class="bg-gray-100 p-6 rounded-xl h-64 overflow-auto">
+                        <div class="border-2 border-gray-300 rounded-lg p-4" style="min-width: 400px;">
+                            <div class="flex justify-between mb-4">
+                                <div class="text-center">
+                                    <div>User</div>
+                                    <div class="h-8 border-l-2 border-gray-400"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div>App</div>
+                                    <div class="h-8 border-l-2 border-gray-400"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div>Database</div>
+                                    <div class="h-8 border-l-2 border-gray-400"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between">
+                                <div class="w-1/3"></div>
+                                <div class="w-1/3 text-center">
+                                    <div class="border-t-2 border-gray-400 pt-1">Request lesson</div>
+                                </div>
+                                <div class="w-1/3"></div>
+                            </div>
+                            
+                            <div class="flex justify-between">
+                                <div class="w-1/3"></div>
+                                <div class="w-1/3"></div>
+                                <div class="w-1/3 text-center">
+                                    <div class="border-t-2 border-gray-400 pt-1">Fetch data</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between">
+                                <div class="w-1/3"></div>
+                                <div class="w-1/3 text-center">
+                                    <div class="border-t-2 border-gray-400 pt-1">Return lesson</div>
+                                </div>
+                                <div class="w-1/3"></div>
+                            </div>
+                            
+                            <div class="flex justify-between">
+                                <div class="w-1/3 text-center">
+                                    <div class="border-t-2 border-gray-400 pt-1">Display content</div>
+                                </div>
+                                <div class="w-1/3"></div>
+                                <div class="w-1/3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flutter SDK Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Flutter SDK</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 p-8 text-white flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4">Application Mobile</h3>
+                        <p class="mb-6">Notre application est construite avec Flutter, permettant une expérience native sur iOS et Android avec un seul codebase.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>Performances natives</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>UI/UX adaptative</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle mr-3"></i>
+                                <span>Accès aux fonctionnalités mobiles</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <h4 class="text-lg font-semibold mb-4">Structure du projet</h4>
+                        <div class="bg-gray-100 rounded-lg p-4 font-mono text-sm overflow-auto" style="max-height: 200px;">
+                            <div class="text-blue-600">lib/</div>
+                            <div class="ml-4 text-blue-600">├── main.dart</div>
+                            <div class="ml-4 text-blue-600">├── models/</div>
+                            <div class="ml-8">│   ├── user.dart</div>
+                            <div class="ml-8">│   └── lesson.dart</div>
+                            <div class="ml-4 text-blue-600">├── screens/</div>
+                            <div class="ml-8">│   ├── home.dart</div>
+                            <div class="ml-8">│   ├── lessons/</div>
+                            <div class="ml-12">│   │   └── lesson_detail.dart</div>
+                            <div class="ml-4 text-blue-600">├── services/</div>
+                            <div class="ml-8">│   ├── auth.dart</div>
+                            <div class="ml-8">│   └── database.dart</div>
+                            <div class="ml-4 text-blue-600">└── widgets/</div>
+                            <div class="ml-8">    ├── progress_chart.dart</div>
+                            <div class="ml-8">    └── flash_card.dart</div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-lg font-semibold mb-2">Dépendances principales</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">flutter_bloc</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">hive</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">http</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">audioplayers</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">shared_preferences</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kreyòl Ayisyen</h3>
+                    <p class="text-gray-400">Apprenez la langue et découvrez la culture haïtienne à travers des leçons interactives et captivantes.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#lessons" class="text-gray-400 hover:text-white transition">Leçons</a></li>
+                        <li><a href="#vocabulary" class="text-gray-400 hover:text-white transition">Vocabulaire</a></li>
+                        <li><a href="#progress" class="text-gray-400 hover:text-white transition">Progression</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Ressources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Témoignages</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Télécharger l'app</h4>
+                    <div class="flex space-x-3 mb-4">
+                        <button onclick="downloadApp('ios')" class="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fab fa-apple fa-lg"></i>
+                        </button>
+                        <button onclick="downloadApp('android')" class="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition">
+                            <i class="fab fa-google-play fa-lg"></i>
+                        </button>
+                    </div>
+                    <h4 class="font-semibold mb-2">Suivez-nous</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2025 Kreyòl Ayisyen. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flashcard Modal -->
+    <div id="flashcardModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalKreyol" class="text-2xl font-bold text-blue-600"></h3>
+                    <button onclick="closeFlashcard()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mb-4">
+                    <p id="modalFrench" class="text-lg font-medium"></p>
+                    <p id="modalDescription" class="text-gray-600 mt-2"></p>
+                </div>
+                <div class="flex justify-between">
+                    <button onclick="playModalAudio()" class="text-blue-500 font-semibold flex items-center">
+                        <i class="fas fa-volume-up mr-2"></i> Écouter
+                    </button>
+                    <button onclick="addToFavorites()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                        Ajouter aux favoris
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Culture Detail Modal -->
+    <div id="cultureModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="cultureTitle" class="text-2xl font-bold text-blue-600"></h3>
+                    <button onclick="closeCultureModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mb-4">
+                    <div id="cultureImage" class="h-40 bg-cover bg-center rounded-md mb-3"></div>
+                    <p id="cultureContent" class="text-gray-600"></p>
+                </div>
+                <div class="text-right">
+                    <button onclick="closeCultureModal()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lesson Modal -->
+    <div id="lessonModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="lessonTitle" class="text-2xl font-bold text-blue-600"></h3>
+                    <button onclick="closeLessonModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mb-6">
+                    <div id="lessonContent" class="prose max-w-none">
+                        <!-- Lesson content will be inserted here -->
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <button onclick="markLessonComplete()" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition">
+                        Marquer comme terminé
+                    </button>
+                    <button onclick="closeLessonModal()" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let currentStreak = 7;
+        let wordsLearned = 142;
+        let lessonsCompleted = 8;
+        let currentFlashcardIndex = 0;
+        let currentPracticeIndex = 0;
+        let favorites = [];
+        
+        // Flashcard data
+        const flashcards = [
+            { kreyol: "Bonjou", french: "Bonjour", description: "Utilisé pour saluer le matin jusqu'à midi" },
+            { kreyol: "Bonswa", french: "Bonsoir", description: "Utilisé pour saluer l'après-midi et le soir" },
+            { kreyol: "Kijan ou ye?", french: "Comment ça va?", description: "Salutation informelle" },
+            { kreyol: "Mwen byen", french: "Je vais bien", description: "Réponse à une salutation" },
+            { kreyol: "Mèsi", french: "Merci", description: "Expression de gratitude" }
+        ];
+        
+        // Practice questions
+        const practiceQuestions = [
+            {
+                question: "Comment allez-vous aujourd'hui?",
+                answer: "Kijan ou ye jodi a?",
+                hint: "En Kreyòl, on utilise souvent 'Kijan ou ye?' pour 'Comment allez-vous?'"
+            },
+            {
+                question: "Je m'appelle Jean",
+                answer: "Mwen rele Jean",
+                hint: "'Mwen rele' signifie 'Je m'appelle'"
+            },
+            {
+                question: "Merci beaucoup",
+                answer: "Mèsi anpil",
+                hint: "'Anpil' signifie 'beaucoup'"
+            },
+            {
+                question: "Où est la plage?",
+                answer: "Ki kote plaj la ye?",
+                hint: "'Ki kote... ye' est une structure courante pour demander où se trouve quelque chose"
+            }
+        ];
+        
+        // Culture content
+        const cultureContent = {
+            "Art haïtien": {
+                image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                text: "L'art haïtien est connu pour ses couleurs vives et ses thèmes spirituels. L'art naïf haïtien, en particulier, a gagné une reconnaissance internationale. Les peintures représentent souvent des scènes de la vie quotidienne, des paysages, ou des éléments de la religion vaudou."
+            },
+            "Musique": {
+                image: "https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                text: "La musique haïtienne est diverse, allant du kompa (un style de musique de danse) au rasin (racines), qui incorpore des éléments traditionnels. Le carnaval haïtien est un événement musical majeur avec des rythmes entraînants et des défilés colorés."
+            },
+            "Cuisine": {
+                image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                text: "La cuisine haïtienne est un mélange d'influences africaines, françaises et indigènes. Des plats comme le griot (porc mariné et frit), le diri kole ak pwa (riz et haricots), et la soupe joumou (soupe de citrouille) sont des spécialités nationales."
+            },
+            "Histoire": {
+                image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                text: "Haïti a été la première république noire indépendante au monde après la révolution haïtienne (1791-1804) qui a mis fin à l'esclavage et à la domination coloniale française. Cette histoire de résistance et de liberté est un pilier de l'identité haïtienne."
+            }
+        };
+        
+        // Lesson content
+        const lessonsContent = {
+            "Salutations de base": `
+                <h3 class="text-xl font-bold mb-4">Salutations de base en Kreyòl</h3>
+                <p class="mb-4">Les salutations sont essentielles pour commencer à parler créole haïtien. Voici les plus courantes :</p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                    <div class="grid grid-cols-3 gap-2 font-semibold mb-2">
+                        <div>Kreyòl</div>
+                        <div>Français</div>
+                        <div>Prononciation</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Bonjou</div>
+                        <div>Bonjour</div>
+                        <div class="text-gray-500">/bon-jou/</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Bonswa</div>
+                        <div>Bonsoir</div>
+                        <div class="text-gray-500">/bon-swa/</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Kijan ou ye?</div>
+                        <div>Comment ça va?</div>
+                        <div class="text-gray-500">/ki-jan ou yé/</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div>Mwen byen</div>
+                        <div>Je vais bien</div>
+                        <div class="text-gray-500">/mwen byen/</div>
+                    </div>
+                </div>
+                
+                <h4 class="text-lg font-bold mb-2">Exemples de conversation</h4>
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <p><strong>Personne 1:</strong> Bonjou! Kijan ou ye?</p>
+                    <p><strong>Personne 2:</strong> Bonjou! Mwen byen, e ou menm?</p>
+                    <p><strong>Personne 1:</strong> Mwen byen tou, mèsi!</p>
+                </div>
+                
+                <p class="text-sm text-gray-600">Astuce: En Haïti, il est courant de saluer les gens même si on ne les connaît pas. Ne soyez pas surpris si des inconnus vous disent "Bonjou" dans la rue!</p>
+            `,
+            "Nourriture et boissons": `
+                <h3 class="text-xl font-bold mb-4">Nourriture et boissons en Kreyòl</h3>
+                <p class="mb-4">Voici le vocabulaire essentiel pour commander de la nourriture et des boissons en Haïti :</p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                    <div class="grid grid-cols-3 gap-2 font-semibold mb-2">
+                        <div>Kreyòl</div>
+                        <div>Français</div>
+                        <div>Explication</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Manje</div>
+                        <div>Nourriture</div>
+                        <div class="text-gray-500">Terme général</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Diri</div>
+                        <div>Riz</div>
+                        <div class="text-gray-500">Base de l'alimentation</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Poul</div>
+                        <div>Poulet</div>
+                        <div class="text-gray-500">Viande courante</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mb-2">
+                        <div>Dlo</div>
+                        <div>Eau</div>
+                        <div class="text-gray-500">Eau potable</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div>Kafe</div>
+                        <div>Café</div>
+                        <div class="text-gray-500">Boisson populaire</div>
+                    </div>
+                </div>
+                
+                <h4 class="text-lg font-bold mb-2">Phrases utiles</h4>
+                <ul class="list-disc pl-5 mb-4">
+                    <li class="mb-2"><strong>Mwen vle...</strong> - Je veux...</li>
+                    <li class="mb-2"><strong>Ban mwen...</strong> - Donnez-moi...</li>
+                    <li class="mb-2"><strong>Konbyen li koute?</strong> - Combien ça coûte?</li>
+                    <li><strong>Mèsi anpil!</strong> - Merci beaucoup!</li>
+                </ul>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">⚠️ Note culturelle</h4>
+                    <p class="text-sm">En Haïti, il est courant de manger avec les mains pour certains plats comme la banane pesée (banane frite). Ne soyez pas surpris si on ne vous donne pas de couverts!</p>
+                </div>
+            `,
+            "Directions et lieux": `
+                <h3 class="text-xl font-bold mb-4">Directions et lieux en Kreyòl</h3>
+                <p class="mb-4">Apprenez à demander et donner des directions pour vous déplacer en Haïti :</p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">Lieux communs</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>Lopital</div>
+                                <div>Hôpital</div>
+                                <div>Lavil</div>
+                                <div>Ville</div>
+                                <div>Plaj</div>
+                                <div>Plage</div>
+                                <div>Machè</div>
+                                <div>Marché</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Directions</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>Bò dwat</div>
+                                <div>À droite</div>
+                                <div>Bò gòch</div>
+                                <div>À gauche</div>
+                                <div>Tout dwat</div>
+                                <div>Tout droit</div>
+                                <div>Fè yon vire</div>
+                                <div>Tourner</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 class="text-lg font-bold mb-2">Exemples de phrases</h4>
+                <div class="space-y-3 mb-4">
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p><strong>Ki kote lopital la ye?</strong> - Où est l'hôpital?</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p><strong>Pou m ale nan plaj la, ki jan mwen dwe pran?</strong> - Pour aller à la plage, quel chemin dois-je prendre?</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p><strong>Pran bò dwat la, epi ou pral wè li.</strong> - Prenez à droite, et vous le verrez.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">💡 Astuce pratique</h4>
+                    <p class="text-sm">En Haïti, les adresses sont souvent données par rapport à des points de repère plutôt que par des noms de rues. Par exemple: "À côté de l'église Saint-Pierre" ou "En face du marché central".</p>
+                </div>
+            `
+        };
+        
+        // DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize progress ring animation
+            const progressRing = document.querySelector('.progress-ring__circle');
+            if (progressRing) {
+                const radius = progressRing.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+                progressRing.style.strokeDasharray = `${circumference} ${circumference}`;
+                progressRing.style.strokeDashoffset = circumference;
+                
+                const offset = circumference - (75 / 100) * circumference;
+                setTimeout(() => {
+                    progressRing.style.strokeDashoffset = offset;
+                }, 200);
+            }
+            
+            // Update progress stats
+            updateProgressStats();
+            
+            // Set first practice question
+            updatePracticeQuestion();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobileMenu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('open');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+        
+        // Flashcard functionality
+        function showFlashcard(kreyol, french, description) {
+            document.getElementById('modalKreyol').textContent = kreyol;
+            document.getElementById('modalFrench').textContent = french;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('flashcardModal').classList.remove('hidden');
+        }
+        
+        function closeFlashcard() {
+            document.getElementById('flashcardModal').classList.add('hidden');
+        }
+        
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+        
+        function nextFlashcard() {
+            const mainFlashcard = document.getElementById('mainFlashcard');
+            mainFlashcard.classList.remove('flipped');
+            
+            currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+            updateMainFlashcard();
+        }
+        
+        function prevFlashcard() {
+            const mainFlashcard = document.getElementById('mainFlashcard');
+            mainFlashcard.classList.remove('flipped');
+            
+            currentFlashcardIndex = (currentFlashcardIndex - 1 + flashcards.length) % flashcards.length;
+            updateMainFlashcard();
+        }
+        
+        function updateMainFlashcard() {
+            const card = flashcards[currentFlashcardIndex];
+            const front = document.querySelector('#mainFlashcard .flip-card-front');
+            const back = document.querySelector('#mainFlashcard .flip-card-back');
+            
+            front.querySelector('h3').textContent = card.kreyol;
+            front.querySelector('p').textContent = card.description;
+            
+            back.querySelector('h3').textContent = card.french;
+            back.querySelector('p').textContent = "Traduction de " + card.kreyol;
+        }
+        
+        function playAudio() {
+            // In a real app, this would play the audio for the current flashcard
+            alert("Prononciation audio jouée pour: " + flashcards[currentFlashcardIndex].kreyol);
+        }
+        
+        function playModalAudio() {
+            const kreyolWord = document.getElementById('modalKreyol').textContent;
+            alert("Prononciation audio jouée pour: " + kreyolWord);
+        }
+        
+        function addToFavorites() {
+            const kreyolWord = document.getElementById('modalKreyol').textContent;
+            const frenchWord = document.getElementById('modalFrench').textContent;
+            
+            if (!favorites.some(item => item.kreyol === kreyolWord)) {
+                favorites.push({
+                    kreyol: kreyolWord,
+                    french: frenchWord,
+                    description: document.getElementById('modalDescription').textContent
+                });
+                alert("Ajouté aux favoris: " + kreyolWord);
+            } else {
+                alert("Ce mot est déjà dans vos favoris!");
+            }
+            
+            closeFlashcard();
+        }
+        
+        // Practice functionality
+        function updatePracticeQuestion() {
+            const question = practiceQuestions[currentPracticeIndex];
+            document.getElementById('practiceQuestion').textContent = '"' + question.question + '"';
+            document.getElementById('correctAnswer').textContent = question.answer;
+            document.getElementById('practiceAnswer').value = '';
+            document.getElementById('practiceFeedback').classList.add('hidden');
+            
+            // Update hint
+            const hintElement = document.getElementById('practiceHint');
+            hintElement.querySelector('p:last-child').textContent = question.hint;
+        }
+        
+        function checkAnswer() {
+            const userAnswer = document.getElementById('practiceAnswer').value.trim();
+            const correctAnswer = practiceQuestions[currentPracticeIndex].answer;
+            
+            const feedbackElement = document.getElementById('practiceFeedback');
+            const hintElement = document.getElementById('practiceHint');
+            
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                // Correct answer
+                feedbackElement.querySelector('div').className = 'w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white mr-3';
+                feedbackElement.querySelector('i').className = 'fas fa-check';
+                feedbackElement.querySelector('p:first-child').textContent = 'Bonne réponse!';
+                feedbackElement.querySelector('p:last-child').innerHTML = 'La traduction correcte est: <span class="font-semibold">' + correctAnswer + '</span>';
+                
+                // Update progress
+                wordsLearned += 3;
+                updateProgressStats();
+            } else {
+                // Wrong answer
+                feedbackElement.querySelector('div').className = 'w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white mr-3';
+                feedbackElement.querySelector('i').className = 'fas fa-times';
+                feedbackElement.querySelector('p:first-child').textContent = 'Presque!';
+                feedbackElement.querySelector('p:last-child').innerHTML = 'La réponse correcte est: <span class="font-semibold">' + correctAnswer + '</span>';
+            }
+            
+            feedbackElement.classList.remove('hidden');
+            hintElement.classList.add('hidden');
+        }
+        
+        function nextPracticeQuestion() {
+            currentPracticeIndex = (currentPracticeIndex + 1) % practiceQuestions.length;
+            updatePracticeQuestion();
+            document.getElementById('practiceHint').classList.remove('hidden');
+        }
+        
+        function playPracticeAudio() {
+            const question = practiceQuestions[currentPracticeIndex].question;
+            alert("Prononciation audio jouée pour: " + question);
+        }
+        
+        // Progress functionality
+        function updateProgressStats() {
+            document.getElementById('streakDays').textContent = currentStreak + ' jours';
+            document.getElementById('wordsLearned').textContent = wordsLearned;
+            document.getElementById('lessonsCompleted').textContent = lessonsCompleted;
+        }
+        
+        // Lesson functionality
+        function startLesson(lessonTitle) {
+            document.getElementById('lessonTitle').textContent = lessonTitle;
+            document.getElementById('lessonContent').innerHTML = lessonsContent[lessonTitle];
+            document.getElementById('lessonModal').classList.remove('hidden');
+        }
+        
+        function closeLessonModal() {
+            document.getElementById('lessonModal').classList.add('hidden');
+        }
+        
+        function markLessonComplete() {
+            const lessonTitle = document.getElementById('lessonTitle').textContent;
+            lessonsCompleted++;
+            updateProgressStats();
+            alert("Leçon marquée comme terminée: " + lessonTitle);
+            closeLessonModal();
+        }
+        
+        function showAllLessons() {
+            alert("Affichage de toutes les leçons disponibles");
+        }
+        
+        // Culture functionality
+        function exploreCulture() {
+            alert("Ouverture de la section complète sur la culture haïtienne");
+        }
+        
+        function showCultureDetail(topic) {
+            const content = cultureContent[topic];
+            document.getElementById('cultureTitle').textContent = topic;
+            document.getElementById('cultureImage').style.backgroundImage = `url('${content.image}')`;
+            document.getElementById('cultureContent').textContent = content.text;
+            document.getElementById('cultureModal').classList.remove('hidden');
+        }
+        
+        function closeCultureModal() {
+            document.getElementById('cultureModal').classList.add('hidden');
+        }
+        
+        // Utility functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function downloadApp(platform) {
+            if (platform === 'ios') {
+                alert("Redirection vers l'App Store pour télécharger l'application iOS");
+            } else {
+                alert("Redirection vers le Google Play Store pour télécharger l'application Android");
+            }
+        }
+    </script>
+</body>
+</html>
