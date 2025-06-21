@@ -37,6 +37,12 @@ Permettre aux utilisateurs de découvrir la langue et la culture haïtienne de m
 ```bash
 cd flutter_app
 flutter run -d windows
+```
+Installation (Android) :
+
+```bash
+flutter run -d android
+```
 
 ---
 
