@@ -105,7 +105,8 @@ flutter run -d windows
 flutter run -d android
 ```
 ---
- Author
+ ## Author
+ 
 Developed by [Khal Lame]
 
 
