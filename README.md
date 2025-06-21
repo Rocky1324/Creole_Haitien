@@ -18,4 +18,4 @@ Permettre aux utilisateurs de découvrir la langue et la culture haïtienne de m
 Téléchargez le projet, ouvrez `index.html` dans votre navigateur.
 
 ## Auteur
-Développé par [Rock Khyshnert]
+Développé par [Khal Lame]
