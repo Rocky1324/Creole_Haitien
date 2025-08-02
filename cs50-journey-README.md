@@ -1,16 +1,18 @@
 # CS50: Introduction to Computer Science 🎓
 
 ## 📚 **Course Overview**
-**Institution:** Harvard University  
-**Course:** CS50 - Introduction to Computer Science  
-**Student:** [Your Name]  
+**Course:** Harvard's CS50 - Introduction to Computer Science (Online)  
+**Learning Path:** Self-directed through CS50x (free online course)  
+**Student:** [Your Name] - 15-year-old self-taught programmer  
 **Start Date:** [Your Start Date]  
 **Expected Completion:** [Target Date]  
 **Progress:** 8/10 weeks completed ✨
 
-## 🎯 **Learning Journey**
+## 🎯 **My Self-Learning Journey**
 
-> *"This was CS50. I learned to think more carefully, more methodically, more computationally."*
+> *"Taking Harvard's CS50 online at 15 - proving that age is just a number when you're passionate about learning!"*
+
+**Why CS50?** Wanted to build a rock-solid computer science foundation before diving into advanced topics like AI/ML. CS50's reputation for excellence and comprehensive curriculum made it the perfect choice for serious self-study.
 
 ## 📅 **Weekly Progress Tracker**
 
@@ -309,34 +311,40 @@ JavaScript ███████████████████████
 ## 🎉 **CS50 Community & Support**
 
 ### **Resources Used**
-- **CS50 Lectures** - David Malan's incredible teaching
-- **CS50 Duck Debugger** - AI assistant for help
-- **CS50 Discord** - Community support and discussions
-- **Office Hours** - Getting unstuck on difficult problems
+- **CS50 Lectures** - David Malan's incredible online teaching
+- **CS50 Duck Debugger** - AI assistant for help when stuck
+- **CS50 Discord/Reddit** - Online community support and discussions
+- **CS50 Documentation** - Official problem set specifications
+- **YouTube CS50** - Rewatching complex concepts
 
-### **Study Strategies**
-- **Active Practice** - Coding along with lectures
-- **Problem Set Completion** - No skipping, even if challenging
-- **Peer Discussion** - Learning from classmates
-- **Documentation** - Keeping detailed notes (this repository!)
+### **Self-Study Strategies**
+- **Active Practice** - Coding along with lectures, not just watching
+- **Problem Set Completion** - No skipping, even when challenging (no grades pushing me!)
+- **Online Community** - Learning from other self-directed students
+- **Documentation** - Keeping detailed notes in this repository
+- **Self-Discipline** - Creating my own deadlines and sticking to them
 
-## 💡 **Advice for Future CS50 Students**
+## 💡 **Advice for Future Self-Directed CS50 Students**
 
-1. **Don't Rush** - Take time to understand concepts deeply
+1. **Don't Rush** - Take time to understand concepts deeply (no semester deadlines!)
 2. **Practice Daily** - Consistent coding builds muscle memory
-3. **Ask Questions** - The community is incredibly helpful
-4. **Document Learning** - Keep track of progress and insights
-5. **Build Projects** - Apply knowledge beyond problem sets
-6. **Embrace Struggle** - Difficult problems lead to growth
+3. **Join the Community** - Online forums and Discord are incredibly helpful
+4. **Document Everything** - Keep track of progress and insights (like this repo!)
+5. **Build Extra Projects** - Apply knowledge beyond just problem sets
+6. **Embrace the Struggle** - Difficult problems lead to real growth
+7. **Set Your Own Deadlines** - Self-discipline is key for online learning
+8. **Don't Compare** - Everyone learns at their own pace, especially at 15!
 
-## 🏆 **Personal Achievements**
+## 🏆 **Personal Achievements & Self-Learning Milestones**
 
-- ✅ **Completed 8/10 weeks** with strong understanding
-- ✅ **Built first interactive game** in JavaScript
-- ✅ **Mastered C programming** fundamentals
-- ✅ **Database design skills** for real applications
-- 🎯 **Ready for Flask** and full-stack development
-- 🎯 **Prepared for final project** planning
+- ✅ **Completed 8/10 weeks** through pure self-motivation and discipline
+- ✅ **Built first interactive game** in JavaScript (number guessing game!)
+- ✅ **Mastered C programming** fundamentals without any formal instruction
+- ✅ **Database design skills** learned independently for real applications
+- ✅ **Self-taught web development** with HTML, CSS, and JavaScript
+- 🎯 **Ready for Flask** and full-stack development (starting next week!)
+- 🎯 **Prepared for final project** planning and execution
+- 🌟 **Proved that 15-year-olds can master university-level computer science**
 
 ---
 
@@ -344,10 +352,12 @@ JavaScript ███████████████████████
 
 **GitHub:** [Your GitHub Profile]  
 **LinkedIn:** [Your LinkedIn]  
-**CS50 Profile:** [Your CS50 Profile]
+**CS50x Profile:** [Your CS50x Profile]
 
 **Next Update:** After completing Flask course and starting final project!
 
-> **"CS50 taught me that programming isn't just about writing code—it's about solving problems, thinking logically, and building solutions that make a difference."**
+> **"Taking CS50 online at 15 taught me that programming isn't just about writing code—it's about solving problems, thinking logically, and building solutions that make a difference. Age is just a number when you have passion and determination!"**
 
-🎓 **Almost ready for that CS50 certificate!** 🚀
+🎓 **Almost ready for that CS50x certificate - earned through pure self-dedication!** 🚀
+
+**Inspiring fact:** Started this journey as a 15-year-old with no programming experience, now building interactive web applications and preparing for AI/ML! 💪
